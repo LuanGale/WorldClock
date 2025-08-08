@@ -16,19 +16,42 @@
     <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
-    <h1>World Clock</h1>
-    <footer>
-      <p>
-        Coded by
-        <a href="https://github.com/LuanGale" target="_blank">Luan Gale</a>
-        and is open-sourced on
-        <a href="https://github.com/LuanGale/WorldClock" target="_blank">
-          GitHub</a
-        >
-        and hosted on
-        <a href="https://worldclocklgt.netlify.app/" target="_blank">Netlify</a>
-      </p>
-    </footer>
+    <div class="container">
+      <h1>World Clock</h1>
+
+      <select name="countries" id="countries">
+        <option value="">Choose a city</option>
+        <option value="London">London</option>
+        <option value="Madrid">Madrid</option>
+        <option value="New York">New York</option>
+      </select>
+
+      <div class="city">
+        <h2>London</h2>
+        <div class="date">Monday 1st, 2025</div>
+        <div class="time">00:00:00 AM</div>
+      </div>
+      <div class="city">
+        <h2>Madrid</h2>
+        <div class="date">Monday 1st, 2025</div>
+        <div class="time">00:00:00 AM</div>
+      </div>
+
+      <footer>
+        <p>
+          Coded by
+          <a href="https://github.com/LuanGale" target="_blank">Luan Gale</a>
+          and is open-sourced on
+          <a href="https://github.com/LuanGale/WorldClock" target="_blank">
+            GitHub</a
+          >
+          and hosted on
+          <a href="https://worldclocklgt.netlify.app/" target="_blank"
+            >Netlify</a
+          >
+        </p>
+      </footer>
+    </div>
     <script src="src/index.js"></script>
   </body>
 </html>
