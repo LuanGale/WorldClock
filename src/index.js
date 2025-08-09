@@ -32,13 +32,18 @@ function updateTime(Time) {
   )} <small>${seoulTime.format("A")}`;
 }
 
-function updateCity(event) {
-  let cityTimeZone = event.target.value;
-  if (cityTimeZone === "currentTime") {
-    cityTimeZone = moment.tz.guess();
+function handleCityChange(event) {
+  if (event.target.value === "currentTime") {
+    selectedTimeZone = moment.tz.guess();
+  } else {
+    selectedTimeZone = event.target.value;
   }
-  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
-  let cityTime = moment().tz(cityTimeZone);
+  updateCity();
+}
+
+function updateCity() {
+  let cityName = selectedTimeZone.replace("_", " ").split("/")[1];
+  let cityTime = moment().tz(selectedTimeZone);
 
   let citiesElement = document.querySelector("#cities");
   citiesElement.innerHTML = `
@@ -56,7 +61,8 @@ function updateCity(event) {
   `;
 }
 
-setInterval(updateTime, 1000);
-
 let citySelectElement = document.querySelector("#city");
-citySelectElement.addEventListener("change", updateCity);
+citySelectElement.addEventListener("change", handleCityChange);
+
+setInterval(updateTime, 1000);
+setInterval(updateCity, 1000);
